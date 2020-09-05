@@ -1,37 +1,46 @@
-import React,{Component} from 'react';
-import {Link} from 'react-router-dom';
-import '../styles/components/Life-Cycle.css';
- export default class Lc extends Component{
-      state={
-          number: 0
-      }
-       handleClick = () =>{
-          this.setState((myState)=>{
-              return({
-                  number : myState.number + 1
-              })
-          })
-      }
-     componentDidMount(){
-         console.log("Your Component is Here!");
-     }
-     componentDidUpdate(){
-         console.log("Hey Updating is coming!");
-     }
-     componentWillUnmount(){
-         console.log('Component is dead!');
-     }
-    render(){
-        return(
-            <div className="mianDiv">
-                <h1>Lets practice Life-cycle-methods!</h1>
-                <p>Open your console</p>
-                <p>{this.state.number}</p>
-                <button className="addBtn" onClick={this.handleClick}>Add State</button>
-                <Link className="firstLink" to="/unmount">Go to another page</Link>
-            </div>
-        )
-    }
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import "../styles/components/Life-Cycle.css";
+export default class Lc extends Component {
+  state = {
+    number: 0
+  };
+
+  componentDidMount() {
+    console.log("Your Component is Here!");
+  }
+
+  componentDidUpdate() {
+    console.log("Hey Updating is coming!");
+  }
+
+  componentWillUnmount() {
+    console.log("Component is dead!");
+  }
+
+  handleClick = () => {
+    this.setState(myState => {
+      return {
+        number: myState.number + 1
+      };
+    });
+  };
+
+  render() {
+    return (
+      <div className="mianDiv">
+        <h1>Lets practice Life-cycle-methods!</h1>
+        <p>Open your console</p>
+        <p>{this.state.number}</p>
+        <button className="addBtn" onClick={this.handleClick}>
+          Add State
+        </button>
+        <Link className="firstLink" to="/unmount">
+          Go to another page
+        </Link>
+      </div>
+    );
+  }
 }
 //LifeCycle Methods:
 
@@ -105,4 +114,4 @@ This needs to be used with caution only for certain performance optimizations.
 The two new lifecycle methods are getDerivedStateFromProps() and getSnapshotBeforeUpdate().
 They need to be used only occasionally.
 Not many examples are out there for these two methods and they are still being discussed and will have more references in the future.
-*/ 
+*/
